@@ -59,7 +59,7 @@ export const LayoutAnimationScreen: React.FC<
           justifyContent: "center",
         }}
       >
-        <Text style={{ marginTop: 6 }}>{`Show Layout`}</Text>
+        <Text style={{ marginTop: 6 }}>{`Show Elements`}</Text>
 
         <Switch value={shown} onChange={toggleShown} />
       </View>

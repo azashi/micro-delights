@@ -1,6 +1,6 @@
 import { RootStackScreenProps } from "@/src/navigator/types";
 import { useCallback, useState } from "react";
-import { View, Pressable, Switch } from "react-native";
+import { View, Pressable, Switch, ScrollView } from "react-native";
 import { Text } from "@/src/components/Text";
 import { COLORS } from "@/src/theme";
 import { MumbaiPOI } from "./data";
@@ -74,7 +74,7 @@ export const LayoutAnimationScreen: React.FC<
           justifyContent: "center",
         }}
       >
-        <Text style={{ marginTop: 6 }}>{`Show Layout`}</Text>
+        <Text style={{ marginTop: 6 }}>{`Show Elements`}</Text>
 
         <Switch value={shown} onChange={toggleShown} />
       </View>
@@ -93,8 +93,8 @@ export const LayoutAnimationScreen: React.FC<
         />
       )} */}
 
-      {/* {shown && (
-        <Animated.ScrollView
+      {shown && (
+        <ScrollView
           contentContainerStyle={{
             flexDirection: "row",
             flexWrap: "wrap",
@@ -103,20 +103,8 @@ export const LayoutAnimationScreen: React.FC<
           }}
         >
           {POI.map((p, i) => renderItem({ item: p, index: i }))}
-        </Animated.ScrollView>
-      )} */}
-
-      <Animated.View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: 16,
-          paddingHorizontal: 16,
-        }}
-      >
-        {POI.map((p, i) => renderItem({ item: p, index: i }))}
-      </Animated.View>
+        </ScrollView>
+      )}
     </View>
   );
 };
