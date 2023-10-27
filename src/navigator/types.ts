@@ -3,6 +3,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 
 export type RootStackList = {
   Home: undefined;
+  GestureAnimation: undefined;
   LayoutAnimation: undefined;
   ScrollAnimation: undefined;
 };

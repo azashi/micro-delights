@@ -4,6 +4,7 @@ import type { RootStackList } from "./types";
 import { HomeScreen } from "@/src/feature/Home";
 import { LayoutAnimationScreen } from "@/src/feature/LayoutAnimations";
 import { ScrollAnimationScreen } from "@/src/feature/ScrollAnimations/";
+import { GestureAnimationScreen } from "@/src/feature/GestureAnimations";
 
 export const RootStack = createStackNavigator<RootStackList>();
 
@@ -19,6 +20,11 @@ export const RootStackNavigator: React.FC<RootStackNavigatorProps> = ({}) => {
           name="Home"
           component={HomeScreen}
           options={{ title: "Micro Delights" }}
+        />
+        <RootStack.Screen
+          name="GestureAnimation"
+          component={GestureAnimationScreen}
+          options={{ title: "Gesture Animations" }}
         />
         <RootStack.Screen
           name="LayoutAnimation"
