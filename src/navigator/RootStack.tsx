@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import type { RootStackList } from "./types";
 import { HomeScreen } from "@/src/feature/Home";
 import { LayoutAnimationScreen } from "@/src/feature/LayoutAnimations";
+import { ScrollAnimationScreen } from "@/src/feature/ScrollAnimations/";
 
 export const RootStack = createStackNavigator<RootStackList>();
 
@@ -23,6 +24,11 @@ export const RootStackNavigator: React.FC<RootStackNavigatorProps> = ({}) => {
           name="LayoutAnimation"
           component={LayoutAnimationScreen}
           options={{ title: "Layout Animations" }}
+        />
+        <RootStack.Screen
+          name="ScrollAnimation"
+          component={ScrollAnimationScreen}
+          options={{ title: "Scroll Animations", headerShown: false }}
         />
       </RootStack.Group>
     </RootStack.Navigator>

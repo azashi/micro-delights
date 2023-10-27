@@ -1,4 +1,4 @@
-export const MumbaiPOI = [
+const MumbaiPOI = [
   {
     id: "1",
     name: "Gateway of India",
@@ -67,3 +67,11 @@ export const MumbaiPOI = [
     rating: 4.0,
   },
 ];
+
+export type POI = (typeof MumbaiPOI)[0];
+
+export const generatePOI = (repeation?: number) => {
+  return Array.from({ length: repeation || 1 }, (_, i) =>
+    MumbaiPOI.map((p) => ({ ...p, id: p.id + i }))
+  ).flat();
+};

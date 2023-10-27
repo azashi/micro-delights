@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { View, Pressable, Switch, ScrollView } from "react-native";
 import { Text } from "@/src/components/Text";
 import { COLORS } from "@/src/theme";
-import { MumbaiPOI } from "./data";
+import { generatePOI, POI } from "@/src/data/poi";
 import Animated, {
   FlipInEasyX,
   SequencedTransition,
@@ -17,14 +17,10 @@ export const LayoutAnimationScreen: React.FC<
 
   const toggleShown = () => setShown((prev) => !prev);
 
-  const [POI, setPOI] = useState(() => {
-    return Array.from({ length: 2 }, (_, i) =>
-      MumbaiPOI.map((p) => ({ ...p, id: p.id + i }))
-    ).flat();
-  });
+  const [POI, setPOI] = useState(generatePOI(2));
 
   const renderItem = useCallback(
-    ({ item, index }: { item: (typeof MumbaiPOI)[0]; index: number }) => {
+    ({ item, index }: { item: POI; index: number }) => {
       const removeItem = () =>
         setPOI((prev) => prev.filter((p) => p.id !== item.id));
 

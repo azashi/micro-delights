@@ -6,12 +6,13 @@ export const HomeScreen: React.FC<RootStackScreenProps<"Home">> = ({
   navigation,
 }) => {
   const goToLayoutAnimation = () => navigation.navigate("LayoutAnimation");
+  const goToScrollAnimation = () => navigation.navigate("ScrollAnimation");
 
   return (
     <Layout style={styles.container}>
       <Button title="Gesture Animation" />
       <Button title="Layout Animation" onPress={goToLayoutAnimation} />
-      <Button title="Scroll Animation" />
+      <Button title="Scroll Animation" onPress={goToScrollAnimation} />
     </Layout>
   );
 };

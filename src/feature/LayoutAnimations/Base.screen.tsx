@@ -3,9 +3,11 @@ import { useCallback, useState } from "react";
 import { View, Switch, FlatList } from "react-native";
 import { Text } from "@/src/components/Text";
 import { COLORS } from "@/src/theme";
-import { MumbaiPOI } from "./data";
+import { generatePOI, POI } from "@/src/data/poi";
 import Animated, { FlipInEasyX } from "react-native-reanimated";
 import { Layout } from "@/src/components/Layout";
+
+const POI_DATA = generatePOI();
 
 export const LayoutAnimationScreen: React.FC<
   RootStackScreenProps<"LayoutAnimation">
@@ -15,7 +17,7 @@ export const LayoutAnimationScreen: React.FC<
   const toggleShown = () => setShown((prev) => !prev);
 
   const renderItem = useCallback(
-    ({ item, index }: { item: (typeof MumbaiPOI)[0]; index: number }) => {
+    ({ item, index }: { item: POI; index: number }) => {
       return (
         <Animated.View
           key={item.id}
@@ -58,7 +60,7 @@ export const LayoutAnimationScreen: React.FC<
 
       {shown && (
         <FlatList
-          data={MumbaiPOI}
+          data={POI_DATA}
           renderItem={renderItem}
           contentContainerStyle={{ paddingHorizontal: 16, gap: 16 }}
         />

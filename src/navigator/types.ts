@@ -4,6 +4,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 export type RootStackList = {
   Home: undefined;
   LayoutAnimation: undefined;
+  ScrollAnimation: undefined;
 };
 
 export type RootStackScreenProps<T extends keyof RootStackList> =
