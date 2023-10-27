@@ -1,5 +1,6 @@
-import { View, StyleSheet, Text, Button } from "react-native";
+import { StyleSheet, Button } from "react-native";
 import { RootStackScreenProps } from "@/src/navigator/types";
+import { Layout } from "@/src/components/Layout";
 
 export const HomeScreen: React.FC<RootStackScreenProps<"Home">> = ({
   navigation,
@@ -7,17 +8,16 @@ export const HomeScreen: React.FC<RootStackScreenProps<"Home">> = ({
   const goToLayoutAnimation = () => navigation.navigate("LayoutAnimation");
 
   return (
-    <View style={styles.container}>
+    <Layout style={styles.container}>
       <Button title="Gesture Animation" />
       <Button title="Layout Animation" onPress={goToLayoutAnimation} />
       <Button title="Scroll Animation" />
-    </View>
+    </Layout>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "flex-start",
     padding: 24,
     gap: 24,

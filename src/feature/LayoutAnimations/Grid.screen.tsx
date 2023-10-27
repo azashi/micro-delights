@@ -4,17 +4,15 @@ import { View, Pressable, Switch, ScrollView } from "react-native";
 import { Text } from "@/src/components/Text";
 import { COLORS } from "@/src/theme";
 import { MumbaiPOI } from "./data";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, {
   FlipInEasyX,
   SequencedTransition,
 } from "react-native-reanimated";
+import { Layout } from "@/src/components/Layout";
 
 export const LayoutAnimationScreen: React.FC<
   RootStackScreenProps<"LayoutAnimation">
 > = () => {
-  const insets = useSafeAreaInsets();
-
   const [shown, setShown] = useState(true);
 
   const toggleShown = () => setShown((prev) => !prev);
@@ -55,13 +53,7 @@ export const LayoutAnimationScreen: React.FC<
   );
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#FFFFFF",
-        paddingBottom: insets.bottom,
-      }}
-    >
+    <Layout>
       <View
         style={{
           flexDirection: "row",
@@ -105,6 +97,6 @@ export const LayoutAnimationScreen: React.FC<
           {POI.map((p, i) => renderItem({ item: p, index: i }))}
         </ScrollView>
       )}
-    </View>
+    </Layout>
   );
 };

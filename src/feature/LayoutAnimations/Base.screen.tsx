@@ -4,15 +4,13 @@ import { View, Switch, FlatList } from "react-native";
 import { Text } from "@/src/components/Text";
 import { COLORS } from "@/src/theme";
 import { MumbaiPOI } from "./data";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, { FlipInEasyX } from "react-native-reanimated";
+import { Layout } from "@/src/components/Layout";
 
 export const LayoutAnimationScreen: React.FC<
   RootStackScreenProps<"LayoutAnimation">
 > = () => {
   const [shown, setShown] = useState(true);
-
-  const insets = useSafeAreaInsets();
 
   const toggleShown = () => setShown((prev) => !prev);
 
@@ -40,13 +38,7 @@ export const LayoutAnimationScreen: React.FC<
   );
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#FFFFFF",
-        paddingBottom: insets.bottom,
-      }}
-    >
+    <Layout>
       <View
         style={{
           flexDirection: "row",
@@ -71,6 +63,6 @@ export const LayoutAnimationScreen: React.FC<
           contentContainerStyle={{ paddingHorizontal: 16, gap: 16 }}
         />
       )}
-    </View>
+    </Layout>
   );
 };
